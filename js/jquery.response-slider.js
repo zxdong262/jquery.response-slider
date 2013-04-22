@@ -17,7 +17,6 @@
 			,zIndex:20
 			,showIndicator: true
 			,ease: 'linear'
-			,callback: function() {}
 		}
 		,th = this
 		,defs = th.defs = $.extend(defaults, opts)
