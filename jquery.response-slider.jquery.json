@@ -1,0 +1,35 @@
+{
+    "name": "jquery.response-slider",
+    "title": "jQuery Response Slider",
+    "description": "a response slider jQuery plugin.",
+    "keywords": [
+        "response",
+        "slider"
+    ],
+    "version": "1.0.1",
+    "author": {
+        "name": "ZHAO Xudong",
+        "email": "zxdong@gmail.com",
+        "url": "http://html5beta.com"
+    },
+    "maintainers": [
+        {
+            "name": "ZHAO Xudong",
+            "email": "zxdong@gmail.com",
+            "url": "http://html5beta.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/zxdong262/jquery.response-slider/blob/master/mit-license.txt"
+        }
+    ],
+    "bugs": "https://github.com/zxdong262/jquery.response-slider/issues",
+    "homepage": "http://html5beta.com/jquery-2/jquery-response-slider/",
+    "docs": "http://html5beta.com/jquery-2/jquery-response-slider/",
+    "demo": "http://html5beta.com/jquery-2/jquery-response-slider/",
+    "dependencies": {
+        "jquery": ">=1.7"
+    }
+}
