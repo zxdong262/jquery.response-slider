@@ -139,6 +139,7 @@
 			clearTimeout(t.flag)
 			t.ss.unwrap()
 			t.t.off( 'click', '**' ).removeAttr('style').children('.ss-nav').remove()
+			t.t.children('.ss-dots').remove()
 			t.t.children('.response-slide').removeAttr('style').removeClass('response-slide')
 			$.each( t, function( key, value ) {
 				t[key] = null
