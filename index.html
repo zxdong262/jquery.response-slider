@@ -37,11 +37,14 @@ h1, h2 {
 
 /* response slider css*/
 .response-slide {
-	background:#f2ffff;
-	box-shadow:inset 0 0 15px rgba(0,0,0,.3);
+	background:#333;
+	color:#fff;
+}
+.response-slide.ss-odd {
+	background:#000;
 }
 .ss-nav {
-	display:block;
+	display:none;
 	width:2em;
 	height:2em;
 	border:1px solid #aaa;
@@ -52,6 +55,9 @@ h1, h2 {
 	top:50%;
 	margin-top:-1em;
 	border-radius:2em;
+}
+.ss-hover .ss-nav {
+  display:block;
 }
 .ss-nav-prev {
 	left:.5em;
@@ -170,7 +176,7 @@ h1, h2 {
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.1.min.js"></script>  
 <script src="http://zxdong262.github.io/zui/js/zui.js"></script>
-<script src="js/jquery.response-slider.min.js"></script> 
+<script src="js/jquery.response-slider.js"></script> 
 <script>
 //scripts
 $(document).ready(function() {

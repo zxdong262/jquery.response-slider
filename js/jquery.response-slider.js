@@ -39,7 +39,7 @@
 		th.currentPage = 0
 
 		//init 
-		th.ss.eq(0).css('left', 0)
+		th.ss.eq(0).css('left', 0).end().filter(':odd').addClass('ss-odd')
 		
 		//dots
 		if(defs.showIndicator) {
@@ -81,15 +81,15 @@
 			th.autoroll()
 		}
 		
-		//pauseOnHover
-		if(defs.pauseOnHover) {
-			th.t.hover(function() {
-				th.pause = true
-			},function() {
-				th.pause = false
-			})
-		}
-	}
+		//OnHover
+		th.t.hover(function() {
+		  $(this).addClass('ss-hover')
+			if(defs.pauseOnHover) th.pause = true
+		},function() {
+		  $(this).removeClass('ss-hover')
+			if(defs.pauseOnHover) th.pause = false
+		})
+  }
 	
 	SS.prototype = {
 		action: function(index, isNext) {
