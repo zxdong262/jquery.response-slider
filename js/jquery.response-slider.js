@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------------
-    plugin-name:jQuery response slider
-    Developped By: ZHAO Xudong, zxdong@gmail.com -> http://html5beta.com/jquery-2/jquery-response-slider/
-    License: MIT
+		plugin-name:jQuery response slider
+		Developped By: ZHAO Xudong, zxdong@gmail.com -> http://html5beta.com/jquery-2/jquery-response-slider/
+		License: MIT
 ------------------------------------------------------------------------ */
 
 (function($){
@@ -17,6 +17,8 @@
 			,zIndex:20
 			,showIndicator: true
 			,ease: 'linear'
+			,beforeAction: null
+			,afterAction: null
 		}
 		,th = this
 		,defs = th.defs = $.extend(defaults, opts)
@@ -83,13 +85,13 @@
 		
 		//OnHover
 		th.t.hover(function() {
-		  $(this).addClass('ss-hover')
+			$(this).addClass('ss-hover')
 			if(defs.pauseOnHover) th.pause = true
 		},function() {
-		  $(this).removeClass('ss-hover')
+			$(this).removeClass('ss-hover')
 			if(defs.pauseOnHover) th.pause = false
 		})
-  }
+	}
 	
 	SS.prototype = {
 		action: function(index, isNext) {
@@ -105,13 +107,15 @@
 			cds.eq(c).addClass('ss-on').siblings().removeClass('ss-on')
 			ip.animate({
 				left: 0
-			}, speed, defs.ease);
+			}, speed, defs.ease)
+			$.isFunction(th.defs.beforeAction) && th.defs.beforeAction.call(th)
 			cp.animate({
 				left: -step + '%'
 			}, speed, defs.ease, function() {
 				th.currentPage = index
 				cds.eq(th.currentPage).addClass('ss-on').siblings().removeClass('ss-on')
 				th.onAction = false
+				$.isFunction(th.defs.afterAction) && th.defs.afterAction.call(th)
 				if(defs.autoSlider) {
 					clearTimeout(th.flag)
 					th.flag = setTimeout(function() {
@@ -142,7 +146,7 @@
 			t.t.children('.ss-dots').remove()
 			t.t.children('.response-slide').removeAttr('style').removeClass('response-slide')
 			$.each( t, function( key, value ) {
-				t[key] = null
+				delete t[key]
 			})
 		}
 		
@@ -151,6 +155,6 @@
 	//jquery plugin
 	$.fn.responseSlider = function(opts) {
 		return new SS(opts, this)
-    }
+		}
 })(jQuery)
  
